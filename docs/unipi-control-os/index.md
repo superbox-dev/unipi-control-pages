@@ -21,4 +21,7 @@
 ```{toctree}
 :hidden:
 
+update-packages
+upgrading-os
+upgrading-firmware
 ```
