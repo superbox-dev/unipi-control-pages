@@ -27,7 +27,7 @@ myst_heading_anchors = 2
 html_theme = "furo"
 
 html_title = "superbox"
-# html_logo = "img/superbox_logo.svg"
+# html_logo = "_static/img/superbox_logo.svg"
 html_favicon = "_static/img/favicon.ico"
 html_static_path = ["_static"]
 

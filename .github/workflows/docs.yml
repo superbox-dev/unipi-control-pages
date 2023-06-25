@@ -1,0 +1,48 @@
+name: Build documentation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - docs/**
+      - projects/**
+  push:
+    branches:
+      - main
+    paths:
+      - docs/**
+      - projects/**
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          submodules: True
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+
+      - name: Build documentation
+        run: |
+          sphinx-build -b html docs docs/_build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build
+          publish_branch: documentation
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
