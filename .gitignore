@@ -9,5 +9,8 @@
 # virtualenv
 .venv
 
+# checks
+.mypy_cache
+
 # build output dirs
 docs/_build

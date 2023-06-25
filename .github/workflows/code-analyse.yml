@@ -1,0 +1,30 @@
+name: Code analyse
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  code-analyse:
+    name: Code analyse
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          submodules: True
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install requirements
+        run: |
+          pip install -r requirements-dev.txt
+
+      - name: Lint with yamllint
+        run: |
+          yamllint --version
+          yamllint $(git ls-files '*.yaml') $(git ls-files '*.yml')

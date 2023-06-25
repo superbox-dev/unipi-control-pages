@@ -14,9 +14,16 @@ on:
       - projects/**
 
 jobs:
+  code-analyse:
+    name: Code analyse
+    uses: ./.github/workflows/code-analyse.yml
+
   build-docs:
     name: Build documentation
     runs-on: ubuntu-latest
+
+    needs:
+      - code-analyse
 
     steps:
       - name: Check out repository
