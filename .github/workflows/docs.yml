@@ -37,12 +37,18 @@ jobs:
       - name: Build documentation
         run: |
           sphinx-build -b html docs docs/_build
+          tar \
+            --dereference --hard-dereference \
+            --directory docs/_build \
+            -cvf "${RUNNER_TEMP}/artifact.tar" \
+            .
 
       - name: Upload GitHub Pages
         uses: actions/upload-artifact@v3
         with:
           name: github-pages
-          path: docs/_build
+          path: ${{ runner.temp }}/artifact.tar
+          if-no-files-found: error
 
   deploy-docs:
     name: Deploy documentation
