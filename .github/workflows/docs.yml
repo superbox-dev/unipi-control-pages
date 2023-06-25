@@ -1,4 +1,4 @@
-name: Build documentation
+name: Build and deploy documentation
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ on:
       - projects/**
 
 jobs:
-  docs:
+  build-docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,12 +37,8 @@ jobs:
         run: |
           sphinx-build -b html docs docs/_build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
+      - name: Upload static files
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_build
-          publish_branch: documentation
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+          name: static-files
+          path: docs/_build
