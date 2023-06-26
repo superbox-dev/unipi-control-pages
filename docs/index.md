@@ -22,5 +22,5 @@ unipi-control-os/index
 :hidden:
 
 GitHub <https://github.com/superbox-dev>
-PyPI <https://pypi.org/user/mh-superbox>
+PyPI <https://pypi.org/user/superbox-dev>
 ```
