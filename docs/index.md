@@ -21,6 +21,7 @@ unipi-control-os/index
 :caption: Project links
 :hidden:
 
+Packages pool <https://unipi.superbox.one>
 GitHub <https://github.com/superbox-dev>
 PyPI <https://pypi.org/user/superbox-dev>
 ```
