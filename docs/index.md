@@ -15,6 +15,7 @@ This is the home of the awesome [Unipi Control](https://github.com/superbox-dev/
 :hidden:
 
 unipi-control-os/index
+unipi-control/index
 ```
 
 ```{toctree}
