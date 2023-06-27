@@ -4,3 +4,6 @@
 [submodule "projects/.github"]
 	path = projects/.github
 	url = git@github.com:superbox-dev/.github
+[submodule "projects/unipi-control"]
+	path = projects/unipi-control
+	url = git@github.com:superbox-dev/unipi-control.git
