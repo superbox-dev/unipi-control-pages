@@ -24,4 +24,5 @@
 package-manager
 upgrading-os
 upgrading-firmware
+backup-config
 ```
